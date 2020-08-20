@@ -1,31 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ColorBarFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
+        <data>
+                <variable
+                    name="colorValues"
+                    type="com.example.mycolorpicker.SharedViewModel" />
+        </data>
 
-        <SeekBar
-            android:id="@+id/seekBarRed"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:min="0"
-            android:max="255"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".ColorBarFragment">
 
-        <SeekBar
-            android:id="@+id/seekBarGreen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:min="0"
-            android:max="255"/>
 
-        <SeekBar
-            android:id="@+id/seekBarBlue"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:min="0"
-            android:max="255"/>
+                <SeekBar
+                    android:id="@+id/seekBarRed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:min="0"
+                    android:max="255"
+                    android:progress="@={colorValues.valRed}"/>
 
-</LinearLayout>
+                <SeekBar
+                    android:id="@+id/seekBarGreen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:min="0"
+                    android:max="255"
+                    android:progress="@={colorValues.valGreen}"/>
+
+                <SeekBar
+                    android:id="@+id/seekBarBlue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:min="0"
+                    android:max="255"
+                    android:progress="@={colorValues.valBlue}"/>
+
+        </LinearLayout>
+</layout>

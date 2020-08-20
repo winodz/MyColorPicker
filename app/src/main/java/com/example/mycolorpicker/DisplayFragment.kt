@@ -6,9 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import layout.SharedViewModel
+import com.example.mycolorpicker.databinding.FragmentDisplayBinding
 
 
 /**
@@ -18,6 +19,8 @@ import layout.SharedViewModel
  */
 class DisplayFragment : Fragment() {
 
+    private lateinit var viewModel: SharedViewModel
+    private lateinit var binding : FragmentDisplayBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,14 +32,34 @@ class DisplayFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_display, container, false)
+
+        //binding = DataBindingUtil.inflate(inflater,R.layout.fragment_display,container,false)
+
+       binding = FragmentDisplayBinding.inflate(inflater,container,false)
+
+        //return inflater.inflate(R.layout.fragment_display, container, false)
+        return binding.root
+
+
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val model = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
-        model.valRed.observe(viewLifecycleOwner, Observer {  })
+        viewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
+        viewModel.valRed.observe(viewLifecycleOwner, Observer<Int> {item ->
+
+            setNewColor(
+                viewModel.valRed.value!!,
+                viewModel.valGreen.value!!,
+                viewModel.valBlue.value!!
+            )
+
+            binding.textColorCodeHex.text="Hex Color code"
+            binding.textColorCodeRGB.text="RGB color code"
+            binding.frameDisplay.background
+        })
         //setNewColor(255,255,30)
     }
 

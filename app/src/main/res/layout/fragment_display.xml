@@ -1,22 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".DisplayFragment"
-    android:background="#ffff00">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-<TextView
-    android:id="@+id/textColorCodeHex"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="#ffff00"></TextView>
+    <data>
 
-    <TextView
-        android:id="@+id/textColorCodeRGB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Red=Green=Blue="></TextView>
+        <variable
+            name="colorValues"
+            type="com.example.mycolorpicker.SharedViewModel" />
+    </data>
 
-</FrameLayout>
+    <FrameLayout
+        android:id="@+id/frameDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".DisplayFragment"
+        android:background="#ffff00">
+
+        <!-- TODO: Update blank fragment layout -->
+        <TextView
+            android:id="@+id/textColorCodeHex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#ffff00"></TextView>
+
+        <TextView
+            android:id="@+id/textColorCodeRGB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Red=Green=Blue="></TextView>
+
+    </FrameLayout>
+</layout>

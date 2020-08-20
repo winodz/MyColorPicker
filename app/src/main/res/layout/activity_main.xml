@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="colorValues"
+            type="com.example.mycolorpicker.SharedViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

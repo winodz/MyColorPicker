@@ -1,4 +1,4 @@
-package layout
+package com.example.mycolorpicker
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,6 +9,11 @@ class SharedViewModel: ViewModel() {
     val valGreen = MutableLiveData<Int>()
     val valBlue = MutableLiveData<Int>()
 
+    init {
+        valRed.value = 0
+        valGreen.value = 0
+        valBlue.value = 255
+    }
     fun setAll(red : Int, green : Int, blue : Int){
         valRed.value = red
         valGreen.value = green
