@@ -4,7 +4,7 @@
 
         <data>
                 <variable
-                    name="colorValues"
+                    name="colorModel"
                     type="com.example.mycolorpicker.SharedViewModel" />
         </data>
 
@@ -21,7 +21,7 @@
                     android:layout_height="wrap_content"
                     android:min="0"
                     android:max="255"
-                    android:progress="@={colorValues.valRed}"/>
+                    android:progress="@{colorModel.valRed}"/>
 
                 <SeekBar
                     android:id="@+id/seekBarGreen"
@@ -29,7 +29,7 @@
                     android:layout_height="wrap_content"
                     android:min="0"
                     android:max="255"
-                    android:progress="@={colorValues.valGreen}"/>
+                    android:progress="@{colorModel.valGreen}"/>
 
                 <SeekBar
                     android:id="@+id/seekBarBlue"
@@ -37,7 +37,7 @@
                     android:layout_height="wrap_content"
                     android:min="0"
                     android:max="255"
-                    android:progress="@={colorValues.valBlue}"/>
+                    android:progress="@{colorModel.valBlue}"/>
 
         </LinearLayout>
 </layout>

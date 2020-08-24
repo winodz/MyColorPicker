@@ -1,35 +1,56 @@
 package com.example.mycolorpicker
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class SharedViewModel: ViewModel() {
 
-    val valRed = MutableLiveData<Int>()
-    val valGreen = MutableLiveData<Int>()
-    val valBlue = MutableLiveData<Int>()
+    private val _valRed = MutableLiveData<Int>()
+    val valRed : LiveData<Int>
+    get() = _valRed
+
+    private val _valGreen = MutableLiveData<Int>()
+    val valGreen : LiveData<Int>
+    get() = _valGreen
+
+    private val _valBlue = MutableLiveData<Int>()
+    val valBlue : LiveData<Int>
+    get() = _valBlue
+
+
+
 
     init {
-        valRed.value = 0
-        valGreen.value = 0
-        valBlue.value = 255
+        _valRed.value = 0
+        _valGreen.value = 255
+        _valBlue.value = 255
+
     }
     fun setAll(red : Int, green : Int, blue : Int){
-        valRed.value = red
-        valGreen.value = green
-        valBlue.value = blue
+        _valRed.value = red
+        _valGreen.value = green
+        _valBlue.value = blue
 
     }
     fun setRed(red:Int){
-        valRed.value = red
+        _valRed.value = red
     }
     fun setGreen(green: Int){
-        valGreen.value = green
+        _valGreen.value = green
     }
     fun setBlue(blue: Int){
-        valBlue.value = blue
+        _valBlue.value = blue
     }
 
 
+    fun getHexColorCode(): String{
+
+        return "Hex Color code"
+    }
+    fun getRGBColorCode(): String{
+
+        return "RGB Color code"
+    }
 
 }
